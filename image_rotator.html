@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Rotator</title>
+
+    <style type="text/css">
+        #bck{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: green;
+            width: 500px;
+            height:500px;
+        }
+
+        #imr{
+            height: 461px;
+            width:458px;
+            margin: 20px 20px 20px 20px;
+        }
+    
+    </style>
+</head>
+<body>
+
+    
+        <div id="bck">
+            <div id="imr">
+
+            </div>
+
+
+        </div>
+   
+
+    <script type="text/javascript">
+        var imr=document.getElementById('imr');
+        var imgs=['DSC02220.JPG','DSC02221.JPG','DSC02222.JPG','DSC02223.JPG','DSC02224.JPG'];
+        var no=imgs.length;
+        var curr=0;
+
+        //document.onkeypress=deployImg();       
+
+        function deployImg()
+        {
+            var imgsrc="sample/"+imgs[curr];
+            curr=(curr+1)%no;
+            imr.innerHTML='<img src="'+imgsrc+'" width="458px" height="461px" />';
+            setInterval(deployImg,1000);
+           
+        }
+        deployImg();
+    
+    </script>
+    
+</body>
+</html>
